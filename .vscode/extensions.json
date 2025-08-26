@@ -4,6 +4,7 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "google.wireit",
-        "nefrob.vscode-just-syntax"
+        "nefrob.vscode-just-syntax",
+        "streetsidesoftware.code-spell-checker"
     ]
 }
