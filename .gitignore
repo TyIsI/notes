@@ -19,6 +19,7 @@
 !.editorconfig
 !.prettierignore
 !.stylelintrc.mjs
+!changelog.config.mjs
 !eslint.config.js
 !generate-react-cli.json
 !prettier.config.mjs

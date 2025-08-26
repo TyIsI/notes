@@ -45,6 +45,9 @@ importers:
       '@tanstack/router-plugin':
         specifier: ^1.131.27
         version: 1.131.27(@tanstack/react-router@1.131.27(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(vite@7.1.3(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)(tsx@4.20.5))
+      '@tyisi/config-changelog':
+        specifier: ^2.0.0
+        version: 2.0.0(git-cz@4.9.0)
       '@tyisi/config-eslint':
         specifier: ^5.0.0
         version: 5.0.0(@typescript-eslint/parser@8.41.0(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2))(eslint@9.34.0(jiti@2.5.1))(prettier@3.6.2)(typescript@5.9.2)
@@ -859,6 +862,11 @@ packages:
 
   '@tybys/wasm-util@0.10.0':
     resolution: {integrity: sha512-VyyPYFlOMNylG45GoAe0xDoLwWuowvf92F9kySqzYh8vmYm7D2u4iUJKa1tOUpS70Ku13ASrOkS4ScXFsTaCNQ==}
+
+  '@tyisi/config-changelog@2.0.0':
+    resolution: {integrity: sha512-ySdA/Q53Hk15irUFGoqK3NMjTYSTt2tQXxDHJrmTxXXuJ7GnMBmNOG71GEu2S9p1WrXr1hhocxUvZPEUCcL1+Q==}
+    peerDependencies:
+      git-cz: ^4.9.0
 
   '@tyisi/config-eslint@5.0.0':
     resolution: {integrity: sha512-9PAiRmLlmeoI5HKd1M8/R0+IwnjX4iZKfEdFyVkzcknOzWaDWwQaGeqxPkK/sMPZfQlk241+8d3u1IUumWX7Kg==}
@@ -1925,6 +1933,10 @@ packages:
 
   get-tsconfig@4.10.1:
     resolution: {integrity: sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==}
+
+  git-cz@4.9.0:
+    resolution: {integrity: sha512-cSRL8IIOXU7UFLdbziCYqg8f8InwLwqHezkiRHNSph7oZqGv0togId1kMTfKil6gzK0VaSXeVBb4oDl0fQCHiw==}
+    hasBin: true
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -4393,6 +4405,10 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+  '@tyisi/config-changelog@2.0.0(git-cz@4.9.0)':
+    dependencies:
+      git-cz: 4.9.0
+
   '@tyisi/config-eslint@5.0.0(@typescript-eslint/parser@8.41.0(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2))(eslint@9.34.0(jiti@2.5.1))(prettier@3.6.2)(typescript@5.9.2)':
     dependencies:
       '@eslint/js': 9.34.0
@@ -5690,6 +5706,8 @@ snapshots:
   get-tsconfig@4.10.1:
     dependencies:
       resolve-pkg-maps: 1.0.0
+
+  git-cz@4.9.0: {}
 
   glob-parent@5.1.2:
     dependencies:
