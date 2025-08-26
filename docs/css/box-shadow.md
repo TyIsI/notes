@@ -9,22 +9,22 @@ The [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) 
 The `box-shadow` property can have multiple argument with the following rules:
 
 ```
-shadow-box: none;
-shadow-box: <offset-x> <offset-y> [blur-radius] [spread-radius] ['inset'] [color];
+box-shadow: none;
+box-shadow: <offset-x> <offset-y> [blur-radius] [spread-radius] ['inset'] [color];
 ```
 
 Default global values:
 
 ```
-shadow-box: 'inherit' | 'initial' | 'revert' | 'revert-layer' | 'unset';
+box-shadow: 'inherit' | 'initial' | 'revert' | 'revert-layer' | 'unset';
 ```
 
 Notes:
 
 - The order of the values numerical values is significant.
 - inset and color can both be used either end of the definition, but not in the middle.
-- shadow-box definitions can be repeated
+- box-shadow definitions can be repeated
 
 ```
-shadow-box: <definition>, <definition>, <definition>;
+box-shadow: <definition>, <definition>, <definition>;
 ```
