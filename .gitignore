@@ -20,7 +20,7 @@
 !.prettierignore
 !.stylelintrc.mjs
 !changelog.config.mjs
-!eslint.config.js
+!eslint.config.mjs
 !generate-react-cli.json
 !prettier.config.mjs
 !tsconfig.json
