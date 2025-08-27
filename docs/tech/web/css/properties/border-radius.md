@@ -1,7 +1,11 @@
 ---
 id: border-radius
 title: Border Radius
-category: CSS
+taxonomy:
+    - Tech
+    - Web
+    - CSS
+    - Properties
 ---
 
 ## Basic definitions

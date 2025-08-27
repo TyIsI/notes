@@ -1,7 +1,11 @@
 ---
 id: box-shadow
-title: Box-Shadow
-category: CSS
+title: Box Shadow
+taxonomy:
+    - Tech
+    - Web
+    - CSS
+    - Properties
 ---
 
 The [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) property adds a shadow effect around an HTML element.
