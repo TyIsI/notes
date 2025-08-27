@@ -50,6 +50,7 @@
     "private": true,
     "scripts": {
         "build": "wireit",
+        "build:gh-pages": "wireit",
         "build:storybook": "wireit",
         "commit": "npx git-cz@latest",
         "dev": "wireit",
@@ -64,6 +65,15 @@
         "build": {
             "dependencies": [
                 "build:dist",
+                "build:type-check"
+            ],
+            "files": [
+                "src/**/*"
+            ]
+        },
+        "build:gh-pages": {
+            "dependencies": [
+                "build:dist:gh-pages",
                 "build:type-check"
             ],
             "files": [
@@ -85,6 +95,24 @@
         },
         "build:dist": {
             "command": "just build dist",
+            "dependencies": [
+                "build:format",
+                "build:lint",
+                "build:docs",
+                "build:type-check"
+            ],
+            "files": [
+                "docs/**/*",
+                "public/**/*",
+                "src/**/*"
+            ],
+            "output": [
+                "dist/"
+            ],
+            "clean": true
+        },
+        "build:dist:gh-pages": {
+            "command": "just build gh-pages",
             "dependencies": [
                 "build:format",
                 "build:lint",

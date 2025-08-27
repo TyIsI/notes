@@ -11,6 +11,9 @@ build_docs:
 build_dist:
     @vite build
 
+build_gh-pages:
+    @vite build --base=/notes
+
 build_format: format
 
 build_lint: lint
