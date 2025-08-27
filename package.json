@@ -1,17 +1,4 @@
 {
-    "name": "@tyisi/notes",
-    "private": true,
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-        "build-storybook": "storybook build",
-        "commit": "npx git-cz@latest",
-        "dev": "vite",
-        "build": "tsc && vite build",
-        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview",
-        "storybook": "storybook dev -p 6006"
-    },
     "dependencies": {
         "@tanstack/react-router": "^1.131.27",
         "clsx": "^2.1.1",
@@ -56,5 +43,115 @@
         "typescript": "^5.2.2",
         "vite": "^7.1.3",
         "wireit": "^0.14.12"
+    },
+    "name": "@tyisi/notes",
+    "private": true,
+    "scripts": {
+        "build": "wireit",
+        "build:storybook": "wireit",
+        "commit": "npx git-cz@latest",
+        "dev": "wireit",
+        "lint": "wireit",
+        "preview": "wireit",
+        "storybook": "wireit",
+        "type-check": "wireit"
+    },
+    "type": "module",
+    "version": "0.0.0",
+    "wireit": {
+        "build": {
+            "dependencies": [
+                "build:dist",
+                "build:type-check"
+            ],
+            "files": [
+                "src/**/*"
+            ]
+        },
+        "build:storybook": {
+            "command": "just build storybook"
+        },
+        "build:docs": {
+            "command": "just build docs",
+            "files": [
+                "docs/**/*"
+            ],
+            "output": [
+                "public/docs/**/*"
+            ],
+            "clean": true
+        },
+        "build:dist": {
+            "command": "just build dist",
+            "dependencies": [
+                "build:format",
+                "build:lint",
+                "build:docs",
+                "build:type-check"
+            ],
+            "files": [
+                "docs/**/*",
+                "public/**/*",
+                "src/**/*"
+            ],
+            "output": [
+                "dist/"
+            ],
+            "clean": true
+        },
+        "build:format": {
+            "dependencies": [
+                "format"
+            ],
+            "files": [
+                "src/**/*"
+            ]
+        },
+        "build:lint": {
+            "dependencies": [
+                "lint"
+            ],
+            "files": [
+                "src/**/*"
+            ]
+        },
+        "build:type-check": {
+            "dependencies": [
+                "type-check"
+            ],
+            "files": [
+                "src/**/*"
+            ]
+        },
+        "dev": {
+            "command": "just dev",
+            "service": true
+        },
+        "format": {
+            "command": "just lint"
+        },
+        "lint": {
+            "command": "just lint"
+        },
+        "preview": {
+            "command": "vite preview"
+        },
+        "serve": {
+            "command": "just serve",
+            "service": true
+        },
+        "start": {
+            "command": "just start",
+            "service": true
+        },
+        "storybook": {
+            "command": "just storybook"
+        },
+        "test": {
+            "command": "just test"
+        },
+        "type-check": {
+            "command": "just type-check"
+        }
     }
 }
