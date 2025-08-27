@@ -1,11 +1,18 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import TemplateName from './TemplateName'
 
-export default {
-    title: 'templates/TemplateName'
-}
+const meta = {
+    component: TemplateName
+} satisfies Meta<typeof TemplateName>
 
-export const Default = () => <TemplateName />
+export default meta
 
-Default.story = {
-    name: 'default'
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+    args: {
+        primary: true,
+        label: 'TemplateName'
+    }
 }
