@@ -21,7 +21,9 @@ export const generateMenu = (
         typeof v === 'string' ? (
             <li key={k} className='text-right'>
                 {/* @ts-expect-error OVERRIDE YOLO */}
-                <Link to={`${prefix}/${k}`}>{k}</Link>
+                <Link to={`${import.meta.env.BASE_URL}${prefix}/${k}`}>
+                    {k}
+                </Link>
             </li>
         ) : (
             <ul
