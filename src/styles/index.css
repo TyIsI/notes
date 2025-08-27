@@ -23,7 +23,7 @@
 @theme {
     --color-logo: #646cffaa;
     --color-link-dark: #646cff;
-    --color-link-light: #747bff;
+    --color-link-light: #3842ff;
     --color-link-hover-dark: #535bf2;
     --color-link-hover-light: #9fa4ff;
     --color-graaaaaay: #213547;
@@ -115,9 +115,6 @@
         :root {
             @apply text-graaaaaay bg-white;
         }
-        a:hover {
-            @apply text-link-light;
-        }
         button {
             @apply bg-button-light;
         }
@@ -132,7 +129,7 @@
     }
 
     a.active {
-        @apply border-b border-b-white!;
+        @apply border-b dark:border-b-white border-b-slate-600/50;
     }
 
     body {
