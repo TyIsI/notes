@@ -1,12 +1,18 @@
-/* eslint-disable */
-import MainSideBarMenu from './MainSideBarMenu';
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-export default {
-  title: "MainSideBarMenu",
-};
+import MainSideBarMenu from './MainSideBarMenu'
 
-export const Default = () => <MainSideBarMenu />;
+const meta = {
+    component: MainSideBarMenu
+} satisfies Meta<typeof MainSideBarMenu>
 
-Default.story = {
-  name: 'default',
-};
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+    args: {
+        primary: true,
+        label: 'MainSideBarMenu'
+    }
+}

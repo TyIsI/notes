@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import LandingPage from './LandingPage'
+import ThemeProvider from './ThemeProvider'
 
 const meta = {
-    component: LandingPage
-} satisfies Meta<typeof LandingPage>
+    component: ThemeProvider
+} satisfies Meta<typeof ThemeProvider>
 
 export default meta
 
@@ -13,6 +13,6 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
     args: {
         primary: true,
-        label: 'LandingPage'
+        label: 'ThemeProvider'
     }
 }

@@ -1,6 +1,10 @@
 *
 !.gitignore
 
+!.storybook/
+!.storybook/main.ts
+!.storybook/preview.ts
+
 !.vscode/
 !.vscode/extensions.json
 

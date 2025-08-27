@@ -1,12 +1,18 @@
-/* eslint-disable */
-import TopLevelTopicLayout from './TopLevelTopicLayout';
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-export default {
-  title: "TopLevelTopicLayout",
-};
+import TopLevelTopicLayout from './TopLevelTopicLayout'
 
-export const Default = () => <TopLevelTopicLayout />;
+const meta = {
+    component: TopLevelTopicLayout
+} satisfies Meta<typeof TopLevelTopicLayout>
 
-Default.story = {
-  name: 'default',
-};
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+    args: {
+        primary: true,
+        label: 'TopLevelTopicLayout'
+    }
+}

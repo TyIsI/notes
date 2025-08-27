@@ -1,12 +1,18 @@
-/* eslint-disable */
-import LoadingPage from './LoadingPage';
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-export default {
-  title: "LoadingPage",
-};
+import LoadingPage from './LoadingPage'
 
-export const Default = () => <LoadingPage />;
+const meta = {
+    component: LoadingPage
+} satisfies Meta<typeof LoadingPage>
 
-Default.story = {
-  name: 'default',
-};
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+    args: {
+        primary: true,
+        label: 'LoadingPage'
+    }
+}

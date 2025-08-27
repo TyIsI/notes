@@ -1,12 +1,18 @@
-/* eslint-disable */
-import KnowledgeBasePage from './KnowledgeBasePage';
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-export default {
-  title: "KnowledgeBasePage",
-};
+import KnowledgeBasePage from './KnowledgeBasePage'
 
-export const Default = () => <KnowledgeBasePage />;
+const meta = {
+    component: KnowledgeBasePage
+} satisfies Meta<typeof KnowledgeBasePage>
 
-Default.story = {
-  name: 'default',
-};
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+    args: {
+        primary: true,
+        label: 'KnowledgeBasePage'
+    }
+}

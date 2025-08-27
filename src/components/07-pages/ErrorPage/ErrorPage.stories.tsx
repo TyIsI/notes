@@ -1,12 +1,18 @@
-/* eslint-disable */
-import ErrorPage from './ErrorPage';
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-export default {
-  title: "ErrorPage",
-};
+import ErrorPage from './ErrorPage'
 
-export const Default = () => <ErrorPage />;
+const meta = {
+    component: ErrorPage
+} satisfies Meta<typeof ErrorPage>
 
-Default.story = {
-  name: 'default',
-};
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+    args: {
+        primary: true,
+        label: 'ErrorPage'
+    }
+}
