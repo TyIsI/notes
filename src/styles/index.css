@@ -140,7 +140,7 @@
     }
 
     h1 {
-        @apply text-5xl leading-8;
+        @apply text-5xl leading-12;
     }
 
     button {

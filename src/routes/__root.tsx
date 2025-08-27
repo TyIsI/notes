@@ -14,7 +14,7 @@ export const Route = createRootRoute({
                 <div className='dark:shadow-sidemenu-dark shadow-sidemenu-light fixed top-20 bottom-0 left-0 flex h-full min-h-dvh w-56 gap-2 p-2'>
                     <MainSideBarMenu />
                 </div>
-                <div className='dark:shadow-main-dark shadow-main-light right-4 -mt-8 ml-56 min-h-max w-auto min-w-7/8 border'>
+                <div className='dark:shadow-main-dark shadow-main-light relative right-4 -mt-8 ml-56 min-h-1/2 w-auto min-w-7/8 border'>
                     <Outlet />
                 </div>
             </div>
