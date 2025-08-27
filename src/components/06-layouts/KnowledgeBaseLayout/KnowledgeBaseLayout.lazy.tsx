@@ -1,10 +1,15 @@
-import { type JSX, type ReactNode, lazy, Suspense } from 'react'
+import { type FC, type JSX, lazy, Suspense } from 'react'
 
-const LazyKnowledgeBaseLayout = lazy(async () => await import('./KnowledgeBaseLayout'))
+import type { KnowledgeBaseLayoutProps } from './KnowledgeBaseLayout.types'
 
-const KnowledgeBaseLayout = (
-    props: JSX.IntrinsicAttributes & { children?: ReactNode }
-) => (
+const LazyKnowledgeBaseLayout = lazy(
+    async () => await import('./KnowledgeBaseLayout')
+)
+
+type LazyKnowledgeBaseLayoutProps = JSX.IntrinsicAttributes &
+    KnowledgeBaseLayoutProps
+
+const KnowledgeBaseLayout: FC<LazyKnowledgeBaseLayoutProps> = (props) => (
     <Suspense fallback={null}>
         <LazyKnowledgeBaseLayout {...props} />
     </Suspense>
