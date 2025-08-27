@@ -14,7 +14,7 @@ import { DocsIndexContext } from './DocsIndexProvider.context'
 
 const DocsIndexProvider: FC<DocsIndexProviderProps> = ({ children }) => {
     const { data, isLoading, error } = useSWR<DocsIndexContextValue, Error>(
-        '/docs/index.json'
+        './docs/index.json'
     )
 
     const val = useMemo<DocsIndexContextValue>(
