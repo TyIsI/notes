@@ -2,10 +2,13 @@ import { StrictMode } from 'react'
 
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import ReactDOM from 'react-dom/client'
+import { SWRConfig } from 'swr'
 
-// Import the generated route tree
-import ErrorPage from './components/07-pages/ErrorPage/ErrorPage'
-import LoadingPage from './components/07-pages/LoadingPage/LoadingPage'
+import ErrorPage from '@/components/07-pages/ErrorPage/ErrorPage'
+import LoadingPage from '@/components/07-pages/LoadingPage/LoadingPage'
+import DocsIndexProvider from '@/components/08-providers/DocsIndexProvider/DocsIndexProvider'
+import ThemeProvider from '@/components/08-providers/ThemeProvider/ThemeProvider'
+
 import { getRootElement } from './main.ui'
 import { routeTree } from './routeTree.gen'
 
@@ -37,6 +40,25 @@ const root = ReactDOM.createRoot(rootElement)
 
 root.render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <SWRConfig
+            value={{
+                refreshInterval: 3000,
+                fetcher: async (
+                    resource: RequestInfo | URL,
+                    init?: RequestInit
+                ) =>
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- YOLO
+                    await fetch(resource, init).then(
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- YOLO
+                        async (res) => await res.json()
+                    )
+            }}
+        >
+            <ThemeProvider>
+                <DocsIndexProvider>
+                    <RouterProvider router={router} />
+                </DocsIndexProvider>
+            </ThemeProvider>
+        </SWRConfig>
     </StrictMode>
 )
