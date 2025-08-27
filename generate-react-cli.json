@@ -114,13 +114,13 @@
         },
         "provider": {
             "customTemplates": {
-                "component": "src/templates/default/TemplateName/TemplateName.tsx",
-                "lazy": "src/templates/default/TemplateName/TemplateName.lazy.tsx",
-                "test": "src/templates/default/TemplateName/TemplateName.test.tsx",
-                "types": "src/templates/default/TemplateName/TemplateName.types.ts"
+                "component": "src/templates/provider/TemplateName/TemplateName.tsx",
+                "context": "src/templates/provider/TemplateName/TemplateName.context.ts",
+                "types": "src/templates/provider/TemplateName/TemplateName.types.ts"
             },
             "path": "src/components/08-providers",
-            "withLazy": true,
+            "withContext": true,
+            "withLazy": false,
             "withStory": true,
             "withStyle": false,
             "withTest": false,
