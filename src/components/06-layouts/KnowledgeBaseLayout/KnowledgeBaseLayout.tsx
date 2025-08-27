@@ -12,10 +12,7 @@ const KnowledgeBaseLayout: FC<KnowledgeBaseLayoutProps> = () => {
 
     const pathParts = useMemo(
         () =>
-            location.pathname
-                .replace(import.meta.env.BASE_URL, '')
-                .split('/')
-                .splice(1),
+            location.pathname.replace(import.meta.env.BASE_URL, '').split('/'),
         [location]
     )
 
