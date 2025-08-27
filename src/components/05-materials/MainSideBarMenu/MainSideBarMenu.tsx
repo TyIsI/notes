@@ -18,7 +18,7 @@ const MainSideBarMenu: FC<MainSideBarMenuProps> = () => {
     )
 
     return (
-        <div className='h-full w-full'>
+        <div className='h-max w-full'>
             <ul className='*:block *:border-b *:border-b-slate-500'>{menu}</ul>
         </div>
     )

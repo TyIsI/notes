@@ -44,6 +44,9 @@
     --shadow-nav-dark: 0 5px 15px rgb(0, 0, 0, 25%);
     --shadow-nav-light: 0 5px 15px rgb(255, 255, 255, 25%);
 
+    --shadow-main-light: 5px 5px 15px rgb(0, 0, 0, 25%);
+    --shadow-main-dark: 5px 5px 15px rgb(255, 255, 255, 25%);
+
     --animate-spin-slow: spin 3.14s linear infinite;
 }
 
