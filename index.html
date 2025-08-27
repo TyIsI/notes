@@ -7,9 +7,7 @@
         <title>Ty's Notes</title>
         <script>
             const enforceTheme = () => {
-                const storedTheme = isThemeType(localStorage.theme)
-                    ? localStorage.theme
-                    : 'system'
+                const storedTheme = localStorage.theme ?? 'system'
 
                 switch (storedTheme) {
                     case 'dark':
