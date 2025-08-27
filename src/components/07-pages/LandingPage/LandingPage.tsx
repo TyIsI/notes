@@ -4,7 +4,7 @@ import type { LandingPageProps } from './LandingPage.types'
 
 const LandingPage: FC<LandingPageProps> = () => (
     <main className='p-2'>
-        <h1 className='my-3 text-center'>Welcome to Ty&apos;s notes!</h1>
+        <h1 className='my-3 text-center'>Welcome to Ty&apos;s Notes!</h1>
 
         <div className='my-3'>
             Ty&apos;s Notes is a collection of notes for easy referral/lookup on
