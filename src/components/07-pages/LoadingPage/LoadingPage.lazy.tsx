@@ -1,10 +1,12 @@
-import { type JSX, type ReactNode, lazy, Suspense } from 'react'
+import { type FC, type JSX, lazy, Suspense } from 'react'
+
+import type { LoadingPageProps } from './LoadingPage.types'
 
 const LazyLoadingPage = lazy(async () => await import('./LoadingPage'))
 
-const LoadingPage = (
-    props: JSX.IntrinsicAttributes & { children?: ReactNode }
-) => (
+type LazyLoadingPageProps = JSX.IntrinsicAttributes & LoadingPageProps
+
+const LoadingPage: FC<LazyLoadingPageProps> = (props) => (
     <Suspense fallback={null}>
         <LazyLoadingPage {...props} />
     </Suspense>

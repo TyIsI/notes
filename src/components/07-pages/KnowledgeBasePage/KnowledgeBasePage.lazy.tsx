@@ -1,10 +1,15 @@
-import { type JSX, type ReactNode, lazy, Suspense } from 'react'
+import { type FC, type JSX, lazy, Suspense } from 'react'
 
-const LazyKnowledgeBasePage = lazy(async () => await import('./KnowledgeBasePage'))
+import type { KnowledgeBasePageProps } from './KnowledgeBasePage.types'
 
-const KnowledgeBasePage = (
-    props: JSX.IntrinsicAttributes & { children?: ReactNode }
-) => (
+const LazyKnowledgeBasePage = lazy(
+    async () => await import('./KnowledgeBasePage')
+)
+
+type LazyKnowledgeBasePageProps = JSX.IntrinsicAttributes &
+    KnowledgeBasePageProps
+
+const KnowledgeBasePage: FC<LazyKnowledgeBasePageProps> = (props) => (
     <Suspense fallback={null}>
         <LazyKnowledgeBasePage {...props} />
     </Suspense>

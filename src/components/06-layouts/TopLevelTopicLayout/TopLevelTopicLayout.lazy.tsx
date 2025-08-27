@@ -1,10 +1,15 @@
-import { type JSX, type ReactNode, lazy, Suspense } from 'react'
+import { type FC, type JSX, lazy, Suspense } from 'react'
 
-const LazyTopLevelTopicLayout = lazy(async () => await import('./TopLevelTopicLayout'))
+import type { TopLevelTopicLayoutProps } from './TopLevelTopicLayout.types'
 
-const TopLevelTopicLayout = (
-    props: JSX.IntrinsicAttributes & { children?: ReactNode }
-) => (
+const LazyTopLevelTopicLayout = lazy(
+    async () => await import('./TopLevelTopicLayout')
+)
+
+type LazyTopLevelTopicLayoutProps = JSX.IntrinsicAttributes &
+    TopLevelTopicLayoutProps
+
+const TopLevelTopicLayout: FC<LazyTopLevelTopicLayoutProps> = (props) => (
     <Suspense fallback={null}>
         <LazyTopLevelTopicLayout {...props} />
     </Suspense>

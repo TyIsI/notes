@@ -1,10 +1,12 @@
-import { type JSX, type ReactNode, lazy, Suspense } from 'react'
+import { type FC, type JSX, lazy, Suspense } from 'react'
+
+import type { LandingPageProps } from './LandingPage.types'
 
 const LazyLandingPage = lazy(async () => await import('./LandingPage'))
 
-const LandingPage = (
-    props: JSX.IntrinsicAttributes & { children?: ReactNode }
-) => (
+type LazyLandingPageProps = JSX.IntrinsicAttributes & LandingPageProps
+
+const LandingPage: FC<LazyLandingPageProps> = (props) => (
     <Suspense fallback={null}>
         <LazyLandingPage {...props} />
     </Suspense>
