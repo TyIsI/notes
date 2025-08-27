@@ -12,7 +12,7 @@ build_dist:
     @vite build
 
 build_gh-pages:
-    @vite build --base=https://tyisi.github.io/notes/ && mv dist/index.html dist/404.html
+    @vite build --base=/notes/ && cp dist/index.html dist/404.html
 
 build_format: format
 

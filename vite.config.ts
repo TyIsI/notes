@@ -14,5 +14,47 @@ export default defineConfig({
         }),
         react(),
         tailwindcss()
-    ]
+    ],
+    build: {
+        rollupOptions: {
+            output: {
+                // eslint-disable-next-line complexity -- YOLO
+                manualChunks(id: string): string | null | undefined {
+                    if (id.includes('src/components/07-pages/'))
+                        return id.replace(
+                            /.*\/src\/components\/07-pages\/(\w+)\/.*/,
+                            'page-$1'
+                        )
+                    else if (id.includes('src/components/06-layouts/'))
+                        return id.replace(
+                            /.*\/src\/components\/06-layouts\/(\w+)\/.*/,
+                            'layout-$1'
+                        )
+                    else if (id.includes('src/components/08-providers/'))
+                        return id.replace(
+                            /.*\/src\/components\/08-providers\/(\w+)\/.*/,
+                            'provider-$1'
+                        )
+                    else if (id.includes('src/components/'))
+                        id.replace(
+                            /.*\/src\/components\/\d+-(\w+)\/.*/,
+                            'components-$1'
+                        )
+                    else if (id.includes('src/lib/')) return 'lib'
+                    else if (id.includes('node_modules/.pnpm/@heroicons'))
+                        return 'heroicons'
+                    else if (id.includes('node_modules/.pnpm/heroicons'))
+                        return 'heroicons'
+                    else if (id.includes('node_modules/.pnpm/react-dom'))
+                        return 'react-dom'
+                    else if (id.includes('node_modules/.pnpm/react'))
+                        return 'react'
+                    else if (id.includes('node_modules/.pnpm/@tanstack'))
+                        return 'tanstack'
+                    else if (id.includes('node_modules')) return 'vendor'
+                    else return null
+                }
+            }
+        }
+    }
 })
