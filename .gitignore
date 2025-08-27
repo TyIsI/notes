@@ -48,3 +48,6 @@ public/docs/
 !package.json
 !pnpm-lock.yaml
 !pnpm-workspace.yaml
+
+
+*.sync-conflict-*
