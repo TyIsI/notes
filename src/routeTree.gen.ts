@@ -11,13 +11,13 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as _kbRouteImport } from './routes/__kb'
-import { Route as KbCssSplatRouteImport } from './routes/_kb/css/$'
+import { Route as KbRouteImport } from './routes/_kb'
+import { Route as KbSplatRouteImport } from './routes/_kb/$'
 
 const IndexLazyRouteImport = createFileRoute('/')()
 
-const _kbRoute = _kbRouteImport.update({
-  id: '/__kb',
+const KbRoute = KbRouteImport.update({
+  id: '/_kb',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexLazyRoute = IndexLazyRouteImport.update({
@@ -25,47 +25,46 @@ const IndexLazyRoute = IndexLazyRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
-const KbCssSplatRoute = KbCssSplatRouteImport.update({
-  id: '/_kb/css/$',
-  path: '/css/$',
-  getParentRoute: () => rootRouteImport,
+const KbSplatRoute = KbSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => KbRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
-  '/css/$': typeof KbCssSplatRoute
+  '/$': typeof KbSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
-  '/css/$': typeof KbCssSplatRoute
+  '/$': typeof KbSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexLazyRoute
-  '/__kb': typeof _kbRoute
-  '/_kb/css/$': typeof KbCssSplatRoute
+  '/_kb': typeof KbRouteWithChildren
+  '/_kb/$': typeof KbSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/css/$'
+  fullPaths: '/' | '/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/css/$'
-  id: '__root__' | '/' | '/__kb' | '/_kb/css/$'
+  to: '/' | '/$'
+  id: '__root__' | '/' | '/_kb' | '/_kb/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  _kbRoute: typeof _kbRoute
-  KbCssSplatRoute: typeof KbCssSplatRoute
+  KbRoute: typeof KbRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/__kb': {
-      id: '/__kb'
+    '/_kb': {
+      id: '/_kb'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof _kbRouteImport
+      preLoaderRoute: typeof KbRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -75,20 +74,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_kb/css/$': {
-      id: '/_kb/css/$'
-      path: '/css/$'
-      fullPath: '/css/$'
-      preLoaderRoute: typeof KbCssSplatRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_kb/$': {
+      id: '/_kb/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof KbSplatRouteImport
+      parentRoute: typeof KbRoute
     }
   }
 }
 
+interface KbRouteChildren {
+  KbSplatRoute: typeof KbSplatRoute
+}
+
+const KbRouteChildren: KbRouteChildren = {
+  KbSplatRoute: KbSplatRoute,
+}
+
+const KbRouteWithChildren = KbRoute._addFileChildren(KbRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  _kbRoute: _kbRoute,
-  KbCssSplatRoute: KbCssSplatRoute,
+  KbRoute: KbRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
