@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+
 @keyframes logo-spin {
     0% {
         /* transform: rotate(0deg); */
@@ -21,18 +24,27 @@
     --color-logo: #646cffaa;
     --color-link-dark: #646cff;
     --color-link-light: #747bff;
-    --color-link-hover: #535bf2;
+    --color-link-hover-dark: #535bf2;
+    --color-link-hover-light: #9fa4ff;
     --color-graaaaaay: #213547;
     --color-button-light: #f9f9f9;
     --color-button-dark: #1a1a1a;
     --color-dark-text: #ffffffde;
     --color-dark-bg: #242424;
+    --color-light-text: #242424;
+    --color-light-bg: #ffffffde;
     --color-rtd: #888 --text-rendering-speed: optimizeSpeed;
 
     --text-rendering-legibility: optimizeLegibility;
     --text-rendering-geometric: geometricPrecision;
 
-    --shadow-sidemenu: 5px 0 15px rgb(255, 255, 255, 25%);
+    --shadow-sidemenu-dark: 5px 0 15px rgb(255, 255, 255, 25%);
+    --shadow-sidemenu-light: 5px 0 15px rgb(0, 0, 0, 25%);
+
+    --shadow-nav-dark: 0 5px 15px rgb(0, 0, 0, 25%);
+    --shadow-nav-light: 0 5px 15px rgb(255, 255, 255, 25%);
+
+    --animate-spin-slow: spin 3.14s linear infinite;
 }
 
 @utility will-change-filter {
@@ -75,7 +87,7 @@
     text-rendering: --value(--text-rendering-*);
 }
 
-@utility animation-logo-spin {
+@utility animate-logo-spin {
     animation: logo-spin infinite 30s ease;
 }
 
@@ -87,7 +99,13 @@
     :root {
         font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-        @apply text-dark-text bg-dark-bg synthesis-none rendering-legibility leading-6 font-normal antialiased scheme-light-dark;
+        @apply synthesis-none rendering-legibility leading-6 font-normal antialiased scheme-light-dark;
+        @apply text-light-text bg-light-bg;
+        @apply dark:text-dark-text dark:bg-dark-bg;
+    }
+
+    BODY {
+        @apply pt-20;
     }
 
     @media (prefers-color-scheme: light) {
@@ -105,7 +123,9 @@
 
 @layer base {
     a {
-        @apply text-link-dark hover:text-link-hover font-medium decoration-inherit;
+        @apply font-medium decoration-inherit;
+        @apply text-link-light hover:text-link-hover-light;
+        @apply dark:text-link-dark dark:hover:text-link-hover-dark;
     }
 
     a.active {
@@ -146,7 +166,7 @@
     }
 
     .logo a {
-        @apply animation-logo-spin;
+        @apply animate-logo-spin;
     }
 
     .card {
