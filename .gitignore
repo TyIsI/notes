@@ -15,10 +15,15 @@
 !public/
 !public/**/
 !public/**/*
+public/docs/
 
 !src/
 !src/**/
 !src/**/*
+
+!tools/
+!tools/**/
+!tools/**/*
 
 !.editorconfig
 !.prettierignore
@@ -26,6 +31,7 @@
 !changelog.config.mjs
 !eslint.config.mjs
 !generate-react-cli.json
+!justfile
 !prettier.config.mjs
 !tsconfig.json
 !tsconfig.node.json
