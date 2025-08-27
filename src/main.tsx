@@ -23,7 +23,8 @@ const router = createRouter({
     defaultPendingComponent: () => <LoadingPage />,
     defaultErrorComponent: ({ error }) => (
         <ErrorPage errorMessage={error.message} />
-    )
+    ),
+    basepath: import.meta.env.BASE_URL
 })
 
 // Register the router instance for type safety

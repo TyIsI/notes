@@ -40,7 +40,9 @@ export const generateMenu = (
                 )}
             >
                 {/* @ts-expect-error -- YOLO */}
-                <Link to={`${prefix}/${k}`}>{capitalizeFirstLetter(k)}</Link>
+                <Link to={`${import.meta.env.BASE_URL}${prefix}/${k}`}>
+                    {capitalizeFirstLetter(k)}
+                </Link>
 
                 {
                     // @ts-expect-error -- typing is hard yolo
