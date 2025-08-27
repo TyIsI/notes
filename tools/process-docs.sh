@@ -37,6 +37,7 @@ find docs/ -name '*.md' | while read -r DF; do
 
     processFile "${DF}"
 done \
+    && mkdir -p ./public/docs/ \
     && rsync -a --delete ./docs/ ./public/docs/ \
     && while read -r PDF; do
         MDF="${PDF/public/}"
