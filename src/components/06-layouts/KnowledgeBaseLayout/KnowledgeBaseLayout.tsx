@@ -16,11 +16,9 @@ const KnowledgeBaseLayout: FC<KnowledgeBaseLayoutProps> = () => {
         [location]
     )
 
-    console.debug({ pathParts })
-
     return (
         <div>
-            <div className='flex flex-row gap-1'>
+            <div className='flex flex-row gap-1 border-b border-b-gray-500 pb-0.5'>
                 {pathParts.reduce<JSX.Element[]>((c, p, i) => {
                     if (i === 0)
                         return [<span key={p}>{capitalizeFirstLetter(p)}</span>]
@@ -35,7 +33,9 @@ const KnowledgeBaseLayout: FC<KnowledgeBaseLayoutProps> = () => {
                     ]
                 }, [])}
             </div>
-            <Outlet />
+            <div className='my-2.5'>
+                <Outlet />
+            </div>
         </div>
     )
 }
