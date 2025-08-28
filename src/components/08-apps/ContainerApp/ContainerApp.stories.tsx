@@ -1,12 +1,15 @@
-/* eslint-disable */
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
 import ContainerApp from './ContainerApp'
 
-export default {
-    title: 'ContainerApp'
-}
+const meta = {
+    component: ContainerApp
+} satisfies Meta<typeof ContainerApp>
 
-export const Default = () => <ContainerApp />
+export default meta
 
-Default.story = {
-    name: 'default'
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+    args: {}
 }
