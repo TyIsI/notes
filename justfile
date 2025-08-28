@@ -53,6 +53,14 @@ git_hook_pre-commit:
 
     git update-index --again
 
+git_hook_pre-push:
+    #!/bin/bash
+
+    set -e
+
+    pnpm build \
+        && exit 0
+
 lint: lint_eslint lint_stylelint
 
 lint_eslint:
