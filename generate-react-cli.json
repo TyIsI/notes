@@ -112,6 +112,20 @@
             "withTest": false,
             "withTypes": true
         },
+        "app": {
+            "customTemplates": {
+                "component": "src/templates/default/TemplateName/TemplateName.tsx",
+                "lazy": "src/templates/default/TemplateName/TemplateName.lazy.tsx",
+                "test": "src/templates/default/TemplateName/TemplateName.test.tsx",
+                "types": "src/templates/default/TemplateName/TemplateName.types.ts"
+            },
+            "path": "src/components/08-apps",
+            "withLazy": true,
+            "withStory": true,
+            "withStyle": false,
+            "withTest": false,
+            "withTypes": true
+        },
         "provider": {
             "customTemplates": {
                 "component": "src/templates/provider/TemplateName/TemplateName.tsx",
