@@ -26,7 +26,16 @@ config.rules = Object.keys(defaultConfig.rules)
 
 config.rules['at-rule-no-unknown'] = [
     true,
-    { ignoreAtRules: ['document', 'reference', 'theme', 'tailwind', 'utility'] }
+    {
+        ignoreAtRules: [
+            'custom-variant',
+            'document',
+            'reference',
+            'theme',
+            'tailwind',
+            'utility'
+        ]
+    }
 ]
 
 config.rules['import-notation'] = 'string'

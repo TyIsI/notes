@@ -5,6 +5,10 @@
 !.github/**/
 !.github/**/*
 
+!.husky/
+!.husky/*
+.husky/_/
+
 !.storybook/
 !.storybook/main.ts
 !.storybook/preview.ts
@@ -32,7 +36,7 @@ public/docs/
 !.editorconfig
 !.prettierignore
 !.stylelintrc.mjs
-!changelog.config.mjs
+!changelog.config.js
 !eslint.config.mjs
 !generate-react-cli.json
 !justfile
@@ -48,6 +52,5 @@ public/docs/
 !package.json
 !pnpm-lock.yaml
 !pnpm-workspace.yaml
-
 
 *.sync-conflict-*

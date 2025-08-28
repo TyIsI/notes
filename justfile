@@ -27,12 +27,41 @@ dev:
     @vite --port 3000
 
 format:
-    @echo "formatting files..."
-    @pnpm prettier -w src/
+    @echo "Formatting files..."
+    @pnpm prettier -w --ignore-unknown --log-level=silent ${FILES:-.}
 
-lint:
-    @echo "Linting files..."
-    @pnpm eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix
+git-hook target:
+    @echo 'Running {{target}} git hook…'
+    @just "git_hook_{{target}}"
+
+git_hook_pre-commit:
+    #!/bin/bash
+
+    set -e
+
+    FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+
+    if CSSFILES=$(echo -e "${FILES}" | grep -P '\.css$'); then
+        FILES=${CSSFILES} pnpm just lint_stylelint
+    fi
+
+    if JSFILES=$(echo -e "${FILES}" | grep -P 'src\/.*\.[cm]?[jt]sx?$'); then
+        FILES=${JSFILES} pnpm just lint_eslint
+    fi
+
+    FILES=${FILES} pnpm just format
+
+    git update-index --again
+
+lint: lint_eslint lint_stylelint
+
+lint_eslint:
+    @echo "Linting js files..."
+    @pnpm eslint ${FILES:-src} --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix
+
+lint_stylelint:
+    @echo "Linting css files..."
+    @pnpm stylelint ${FILES:-src/**/*.css} --fix
 
 serve:
     @vite preview
