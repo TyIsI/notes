@@ -33,20 +33,16 @@
     --color-dark-bg: #242424;
     --color-light-text: #242424;
     --color-light-bg: #ffffffde;
-    --color-rtd: #888 --text-rendering-speed: optimizeSpeed;
-
-    --text-rendering-legibility: optimizeLegibility;
-    --text-rendering-geometric: geometricPrecision;
-
-    --shadow-nav-light: 0 3px 15px rgb(0, 0, 0, 25%);
+    --color-rtd: #888;
+    --text-rendering-speed: optimizespeed;
+    --text-rendering-legibility: optimizelegibility;
+    --text-rendering-geometric: geometricprecision;
+    --shadow-nav-light: 0 3px 15px rgb(0 0 0 / 25%);
     --shadow-nav-dark: 0 3px 15px #04d9ff;
-
     --shadow-sidemenu-dark: 3px 3px 10px #39ff14;
-    --shadow-sidemenu-light: 3px 3px 10px rgb(0, 0, 0, 25%);
-
-    --shadow-main-light: 3px 3px 15px rgb(0, 0, 0, 25%);
+    --shadow-sidemenu-light: 3px 3px 10px rgb(0 0 0 / 25%);
+    --shadow-main-light: 3px 3px 15px rgb(0 0 0 / 25%);
     --shadow-main-dark: 3px 3px 15px #ff073a;
-
     --animate-spin-slow: spin 3.14s linear infinite;
 }
 
@@ -107,7 +103,7 @@
         @apply dark:text-dark-text dark:bg-dark-bg;
     }
 
-    BODY {
+    body {
         @apply pt-20;
     }
 
@@ -115,6 +111,7 @@
         :root {
             @apply text-graaaaaay bg-white;
         }
+
         button {
             @apply bg-button-light;
         }
