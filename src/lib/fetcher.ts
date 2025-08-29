@@ -15,7 +15,10 @@ export const fetcher = async (
         throw error
     } else {
         return result.headers.has('Content-Type') &&
-            result.headers.get('Content-Type') === 'application/json'
+            (result.headers
+                .get('Content-Type')
+                ?.startsWith('application/json') ??
+                false)
             ? await result.json()
             : await result.text()
     }
