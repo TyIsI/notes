@@ -19,7 +19,7 @@ const DocsIndexProvider: FC<DocsIndexProviderProps> = ({ children }) => {
     )
 
     const val = useMemo<DocsIndexContextValue>(
-        () => ({ ...(data ?? { taxonomy: {}, isLoading }) }),
+        () => Object.assign({ taxonomy: {}, isLoading }, data ?? {}),
         [data]
     )
 
