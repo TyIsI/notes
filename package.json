@@ -10,7 +10,9 @@
         "react-markdown": "^10.1.0",
         "remark-gfm": "^4.0.1",
         "swr": "^2.3.6",
-        "vite-tsconfig-paths": "^5.1.4"
+        "vite-tsconfig-paths": "^5.1.4",
+        "yaml": "^2.8.1",
+        "zod": "^4.1.5"
     },
     "devDependencies": {
         "@storybook/addon-themes": "^9.1.3",
@@ -71,6 +73,7 @@
     "wireit": {
         "build": {
             "dependencies": [
+                "build:schemas",
                 "build:dist",
                 "build:type-check"
             ],
@@ -82,6 +85,7 @@
             "clean": true,
             "command": "just build dist",
             "dependencies": [
+                "build:schemas",
                 "build:format",
                 "build:lint",
                 "build:docs",
@@ -100,6 +104,7 @@
             "clean": true,
             "command": "just build gh-pages",
             "dependencies": [
+                "build:schemas",
                 "build:format",
                 "build:lint",
                 "build:docs",
@@ -126,6 +131,7 @@
         },
         "build:format": {
             "dependencies": [
+                "build:schemas",
                 "format"
             ],
             "files": [
@@ -143,10 +149,44 @@
         },
         "build:lint": {
             "dependencies": [
+                "build:schemas",
                 "lint"
             ],
             "files": [
                 "src/**/*"
+            ]
+        },
+        "build:schemas": {
+            "dependencies": [
+                "build:schemas:types",
+                "build:schemas:guards"
+            ],
+            "files": [
+                "src/schemas/*.ts"
+            ]
+        },
+        "build:schemas:guards": {
+            "dependencies": [
+                "build:schemas:types"
+            ],
+            "command": "just build schemas-guards",
+            "files": [
+                "src/schemas/*.ts",
+                "!src/schemas/guards.ts"
+            ],
+            "output": [
+                "src/schemas/guards.ts"
+            ]
+        },
+        "build:schemas:types": {
+            "command": "just build schemas-types",
+            "files": [
+                "src/schemas/*.ts",
+                "!src/schemas/guards.ts",
+                "!src/schemas/types.ts"
+            ],
+            "output": [
+                "src/schemas/types.ts"
             ]
         },
         "build:storybook": {
@@ -154,6 +194,7 @@
         },
         "build:type-check": {
             "dependencies": [
+                "build:schemas",
                 "type-check"
             ],
             "files": [

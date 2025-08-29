@@ -18,6 +18,14 @@ build_format: format
 
 build_lint: lint
 
+build_schemas-guards:
+    @echo "Building guards..."
+    @tools/generate-schema-guards.sh
+
+build_schemas-types:
+    @echo "Building types..."
+    @tools/generate-schema-types.sh
+
 build_storybook:
     @storybook build
 
