@@ -1,7 +1,7 @@
-import type { DocsIndexContextValue } from '@/components/08-providers/DocsIndexProvider/DocsIndexProvider.types'
+import type { RecursiveRecord } from '@/types/recursive-record'
 
 export interface RecursiveMenuProps {
-    taxonomy: DocsIndexContextValue['taxonomy']
+    taxonomy: RecursiveRecord
     level?: number
     prefix?: string
 }

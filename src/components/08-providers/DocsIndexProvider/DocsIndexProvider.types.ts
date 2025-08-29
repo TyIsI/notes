@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react'
 
-type RecursiveRecord<
-    T extends Record<string, unknown> = Record<string, unknown>
-> = Record<string, T | Record<string, T>>
+import type { RecursiveRecord } from '@/types/recursive-record'
 
 export interface DocsIndexContextValue {
     taxonomy: RecursiveRecord

@@ -64,7 +64,6 @@ const RecursiveMenu: FC<RecursiveMenuProps> = ({ taxonomy, level, prefix }) => {
                 </Link>
 
                 <RecursiveMenu
-                    /* @ts-expect-error -- typing is hard yolo */
                     taxonomy={v}
                     level={levelUp}
                     prefix={`${prefix}/${k}`}
