@@ -17,15 +17,13 @@ const LandingPage: FC<LandingPageProps> = () => (
         </div>
 
         <div className='my-3'>
-            <p>
-                The intention is to make this fully open and accessible for
-                anyone to use.
-            </p>
+            The intention is to make this fully open and accessible for anyone
+            to use.
+        </div>
 
-            <p>
-                Please feel free to contribute through the{' '}
-                <a href='https://github.com/TyIsI/notes'>GitHub</a> repository.
-            </p>
+        <div className='my-3'>
+            Please feel free to contribute through the{' '}
+            <a href='https://github.com/TyIsI/notes'>GitHub</a> repository.
         </div>
     </main>
 )

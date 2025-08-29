@@ -29,8 +29,6 @@ export const enforceTheme = (): void => {
 }
 
 export const saveTheme = (theme: ThemeTypes): void => {
-    console.debug(`saving theme`, theme)
-
     switch (theme) {
         case 'light':
             localStorage.theme = 'light'
@@ -42,8 +40,6 @@ export const saveTheme = (theme: ThemeTypes): void => {
             localStorage.removeItem('theme')
             break
     }
-
-    console.log('stored theme is:', localStorage.theme)
 
     enforceTheme()
 }

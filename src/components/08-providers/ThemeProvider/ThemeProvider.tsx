@@ -15,16 +15,6 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         saveTheme(theme)
     }, [theme])
 
-    // const themeValue = useMemo(
-    //     () => ({
-    //         theme,
-    //         setTheme
-    //     }),
-    //     [localStorage.theme, setTheme]
-    // )
-
-    console.debug(`current theme:`, theme)
-
     return (
         <ThemeProviderContext.Provider value={{ theme, setTheme }}>
             {children}
