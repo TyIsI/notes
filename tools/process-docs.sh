@@ -32,7 +32,7 @@ function processFile {
 
 DICT="{}"
 
-find docs/ -name '*.md' | while read -r DF; do
+find docs/ -name '*.md' | sort | while read -r DF; do
     echo "Processing ${DF}"
 
     processFile "${DF}"
@@ -45,5 +45,5 @@ done \
         UPDATE=".taxonomy.$(echo "$(dirname "${PDF}" | cut -f3- -d/)/[\"${TITLE}\"]" | perl -pe 's|/|.|g') = \"${MDF}\""
 
         DICT=$(echo -e "${DICT}" | jq "${UPDATE}")
-    done < <(find public/docs/ -name '*.md') \
-    && echo -e "${DICT}" > public/docs/index.json
+    done < <(find public/docs/ -name '*.md' | sort) \
+    && echo -e "${DICT}" | jq -S . > public/docs/index.json
