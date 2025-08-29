@@ -27,8 +27,12 @@ const KnowledgeBasePage: FC<KnowledgeBasePageProps> = () => {
     const articleFile = useMemo(() => {
         if (docsIndex.isLoading) return null
 
+        // TODO improve this
         // @ts-expect-error -- YOLO
-        return `${import.meta.env.BASE_URL}${pathParts.reduce((c, e) => c[e], docsIndex.taxonomy)}`
+        return `${import.meta.env.BASE_URL}${pathParts.reduce((c, e) => c[e], docsIndex.taxonomy)}`.replace(
+            '//docs',
+            '/docs'
+        )
     }, [pathParts])
 
     const { data, isLoading, error } = useSWR<string, FetcherException>(
@@ -42,9 +46,11 @@ const KnowledgeBasePage: FC<KnowledgeBasePageProps> = () => {
     if (data == null) return <ErrorPage errorMessage={'Invalid data'} />
 
     return (
-        <Markdown className='external max-w-full text-left text-wrap wrap-normal *:my-2.5'>
-            {data}
-        </Markdown>
+        <div>
+            <Markdown className='external max-w-full text-left text-wrap wrap-normal *:my-2.5 *:text-wrap'>
+                {data}
+            </Markdown>
+        </div>
     )
 }
 
