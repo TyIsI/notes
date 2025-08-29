@@ -11,6 +11,8 @@ const MainSideBarMenu: FC<MainSideBarMenuProps> = () => {
 
     if (docsIndexContext?.taxonomy == null) return <LoadingPage />
 
+    console.debug('docsIndexContext:', docsIndexContext)
+
     return (
         <div className='h-max w-full'>
             <RecursiveMenu taxonomy={docsIndexContext.taxonomy} />
