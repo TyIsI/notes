@@ -138,6 +138,12 @@ importers:
       stylelint:
         specifier: ^16.23.1
         version: 16.23.1(typescript@5.9.2)
+      stylelint-config-clean-order:
+        specifier: ^7.0.0
+        version: 7.0.0(stylelint@16.23.1(typescript@5.9.2))
+      stylelint-config-property-sort-order-smacss:
+        specifier: ^10.0.0
+        version: 10.0.0(stylelint@16.23.1(typescript@5.9.2))
       stylelint-config-standard:
         specifier: ^39.0.0
         version: 39.0.0(stylelint@16.23.1(typescript@5.9.2))
