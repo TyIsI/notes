@@ -28,7 +28,7 @@ const KnowledgeBasePage: FC<KnowledgeBasePageProps> = () => {
         if (docsIndex.isLoading) return null
 
         // @ts-expect-error -- YOLO
-        return pathParts.reduce((c, e) => c[e], docsIndex.taxonomy)
+        return `${import.meta.env.BASE_URL}${pathParts.reduce((c, e) => c[e], docsIndex.taxonomy)}`
     }, [pathParts])
 
     const { data, isLoading, error } = useSWR<string, FetcherException>(
