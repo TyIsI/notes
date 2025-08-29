@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention -- YOLO */
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import MainSideBarMenu from '@/components/05-materials/MainSideBarMenu/MainSideBarMenu'
+import DocsIndexProvider from '@/components/08-providers/DocsIndexProvider/DocsIndexProvider'
+
 import RecursiveMenu from './RecursiveMenu'
 
 const meta = {
@@ -12,6 +15,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
+    render: () => (
+        <div>
+            menu
+            <br />
+            <DocsIndexProvider>
+                <MainSideBarMenu />
+            </DocsIndexProvider>
+        </div>
+    ),
     args: {
         taxonomy: {
             tech: {

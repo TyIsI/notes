@@ -36,6 +36,8 @@
         "git-cz": "^4.8.0",
         "husky": "^9.1.7",
         "just-install": "^2.0.2",
+        "msw": "^2.10.5",
+        "msw-storybook-addon": "^2.0.5",
         "prettier": "^3.6.2",
         "prettier-plugin-sh": "^0.18.0",
         "prettier-plugin-tailwindcss": "^0.6.14",
@@ -169,7 +171,8 @@
             "command": "just lint"
         },
         "preview": {
-            "command": "vite preview"
+            "command": "vite preview",
+            "service": true
         },
         "serve": {
             "command": "just serve",
@@ -180,7 +183,8 @@
             "service": true
         },
         "storybook": {
-            "command": "just storybook"
+            "command": "just storybook",
+            "service": true
         },
         "test": {
             "command": "just test"
@@ -188,5 +192,10 @@
         "type-check": {
             "command": "just type-check"
         }
+    },
+    "msw": {
+        "workerDirectory": [
+            "public"
+        ]
     }
 }

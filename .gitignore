@@ -11,7 +11,7 @@
 
 !.storybook/
 !.storybook/main.ts
-!.storybook/preview.ts
+!.storybook/preview.tsx
 
 !.vscode/
 !.vscode/extensions.json

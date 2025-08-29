@@ -14,7 +14,8 @@ import { DocsIndexContext } from './DocsIndexProvider.context'
 
 const DocsIndexProvider: FC<DocsIndexProviderProps> = ({ children }) => {
     const { data, isLoading, error } = useSWR<DocsIndexContextValue, Error>(
-        `${import.meta.env.BASE_URL}docs/index.json`
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- STORYBOOK YOLO
+        `${import.meta.env.BASE_URL ?? '/'}docs/index.json`
     )
 
     const val = useMemo<DocsIndexContextValue>(

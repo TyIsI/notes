@@ -2,4 +2,5 @@ onlyBuiltDependencies:
     - '@tailwindcss/oxide'
     - esbuild
     - just-install
+    - msw
     - unrs-resolver
