@@ -104,16 +104,6 @@
     body {
         @apply pt-20;
     }
-
-    @media (prefers-color-scheme: light) {
-        :root {
-            @apply text-graaaaaay bg-white;
-        }
-
-        button {
-            @apply bg-button-light;
-        }
-    }
 }
 
 @layer base {
