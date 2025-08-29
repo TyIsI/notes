@@ -41,6 +41,8 @@ jobs:
               run: pnpm install
 
             - name: Build
+              env:
+                  WIREIT_LOGGER: simple
               run: pnpm build:gh-pages
 
             - name: Setup Pages
