@@ -4,6 +4,7 @@ import { Link } from '@tanstack/react-router'
 
 import type { HeaderProps } from './Header.types'
 
+import RepoIconLink from '@/components/02-molecules/RepoIconLink/RepoIconLink'
 import ThemeSelector from '@/components/03-particles/ThemeSelector/ThemeSelector'
 
 const Header: FC<HeaderProps> = () => (
@@ -11,8 +12,9 @@ const Header: FC<HeaderProps> = () => (
         <div className='justify-self-start'>
             <Link to={import.meta.env.BASE_URL}>Ty&apos;s Notes</Link>
         </div>
-        <div className='justify-self-end'>
+        <div className='flex flex-row justify-self-end *:w-fit *:min-w-32'>
             <ThemeSelector />
+            <RepoIconLink />
         </div>
     </div>
 )
