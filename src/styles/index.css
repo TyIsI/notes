@@ -98,9 +98,7 @@
     :root {
         font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-        @apply synthesis-none rendering-legibility leading-6 font-normal antialiased scheme-light-dark;
-        @apply text-light-text bg-light-bg;
-        @apply dark:text-dark-text dark:bg-dark-bg;
+        @apply synthesis-none rendering-legibility dark:text-dark-text dark:bg-dark-bg text-light-text bg-light-bg leading-6 font-normal antialiased scheme-light-dark;
     }
 
     body {
@@ -120,9 +118,7 @@
 
 @layer base {
     a {
-        @apply font-medium decoration-inherit;
-        @apply text-link-light hover:text-link-hover-light;
-        @apply dark:text-link-dark dark:hover:text-link-hover-dark;
+        @apply text-link-light hover:text-link-hover-light dark:text-link-dark dark:hover:text-link-hover-dark font-medium decoration-inherit;
     }
 
     a.active {
