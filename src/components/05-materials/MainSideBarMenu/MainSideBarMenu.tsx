@@ -1,25 +1,19 @@
-import { useContext, useMemo, type FC } from 'react'
+import { useContext, type FC } from 'react'
 
 import type { MainSideBarMenuProps } from './MainSideBarMenu.types'
 
+import RecursiveMenu from '@/components/02-molecules/RecursiveMenu/RecursiveMenu'
+import LoadingPage from '@/components/07-pages/LoadingPage/LoadingPage'
 import { DocsIndexContext } from '@/components/08-providers/DocsIndexProvider/DocsIndexProvider.context'
-
-import { generateMenu } from './MainSideBarMenu.ui'
 
 const MainSideBarMenu: FC<MainSideBarMenuProps> = () => {
     const docsIndexContext = useContext(DocsIndexContext)
 
-    const menu = useMemo(
-        async () =>
-            docsIndexContext != null
-                ? await generateMenu(docsIndexContext.taxonomy)
-                : null,
-        [docsIndexContext]
-    )
+    if (docsIndexContext?.taxonomy == null) return <LoadingPage />
 
     return (
         <div className='h-max w-full'>
-            <ul className='*:block *:border-b *:border-b-slate-500'>{menu}</ul>
+            <RecursiveMenu taxonomy={docsIndexContext.taxonomy} />
         </div>
     )
 }
